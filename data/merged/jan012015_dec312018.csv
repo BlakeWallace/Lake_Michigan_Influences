@@ -1,4 +1,4 @@
-DATE,lake_temp,buoy_wdir,buoy_wspd,buoy_atmp,ohare_wspd,ohare_prcp,ohare_snfall,ohare_sndpth,ohare_atmp,ohare_Mtmp,ohare_mtmp
+DATE,lake_temp,buoy_wdir,buoy_wspd,buoy_atmp,ohare_wspd,ohare_prcp,ohare_snfall,ohare_sndpth,ohare_atmp,ohare_maxtmp,ohare_mintmp
 2015-01-01,3.53,238.3333333333333,9.890476190476187,-5.928571428571429,14.54,0.0,0.0,0.0,20.0,32,14
 2015-01-02,3.5,216.08695652173915,6.230434782608696,-2.2043478260869565,4.7,0.0,0.0,0.0,26.0,34,15
 2015-01-03,3.49,181.91666666666663,5.654166666666666,0.3958333333333334,5.59,0.57,0.4,0.0,31.0,34,29
