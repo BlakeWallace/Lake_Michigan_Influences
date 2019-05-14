@@ -21,6 +21,7 @@
 \usepackage{amscd}
 \usepackage{mathtools}
 
+
 \makeatletter
 \renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%controls position of matrix elements.
   \hskip -\arraycolsep
@@ -110,88 +111,96 @@ Capstone Technical Report} %if necessary, replace with your course title
 
 \item \textbf{Data science objectives}:
 \begin{enumerate}
-\item[i.] Is it possible to build a model that is easily re-implemented?
-\item[ii.] Can we get a better score on each new submission to Kaggle?
+\item[i.] Does Rain have an effect on the average daily water temperature?
+\item[ii.] What effect does rain have on the average daily temperature near the water?
+\item[iii.] What effect does rain have on the average daily temperature far from the water?
+\item[iv.] When it rains, is there a statistically significant difference between the amount of rain that falls in downtown Chicago compared to the Ohare airport?
+\item[v.] How much correlation exists between the average daily temperature of Lake Michigan and the temperature difference between the downtown Chicago area and the Ohare airport?
+\item[vi.] Can we build a model that predicts with at least 80\% accuracy the difference in total precipitation between Ohare airport and the the Botanical gardens?
+\item[vii.] Is there any statistically significant difference between the daily temperature near the water as apposed to far from the water?
 \end{enumerate}
  
 
 
-\item Data: 
+\item \textbf{Data}: 
 
-\hspace{5mm} See the \href{https://www.kaggle.com/c/dsi-us-7-project-2-regression-challenge/data}	{data dictionary} in Kaggle
+\text{Links}
+\begin{enumerate}
+\item[] \href{http://localhost:8888/notebooks/Projects/Repos_BlakeWallace/Capstone/working/EDA_and_analysis.ipynb#Data-Dictionary}\textbf{Data Dictionary}
+\item[] \href{https://www.ndbc.noaa.gov/measdes.shtml} \textbf{Bouy Data Dictionary}
+\item[] \href{https://www1.ncdc.noaa.gov/pub/data/ghcn/daily/readme.txt} \textbf{O'Hare Airport Data Dictionary}
+\item[] \href{https://www1.ncdc.noaa.gov/pub/data/ghcn/daily/readme.txt} \textbf{Botanical Garden Data Dictionary}
 
-\begin{itemize}
-\item This data is from the Amos, IA housing market between the years 2006 and 2010
-\item There are 2051 data points in the training data, each having up to 80 descriptors.
-\item There are null values in the data.  More will be said about this in what follows.
-\end{itemize}
+\end{enumerate}
+
+\text{"The five core values are:"}
+\begin{enumerate}
+ \item[] \textbf{ohare\_prcp} - Precipitation (PRCP) (inches)
+ \item[] \textbf{ohare\_snfall} - Snowfall (SNOW) (inches)
+ \item[] \textbf{ohare\_sndpth} - Snow depth (SNWD) (inches) 
+ \item[] \textbf{ohare\_maxtmp} - Maximum temperature (TMAX) (Fahrenheit)
+ \item[] \textbf{ohare\_mintmp} - Minimum temperature (TMIN) (Fahrenheit)
+\end{enumerate}
+
+\text{Other Features}
+\begin{enumerate}
+\item[] \textbf{lake-temp} - Average Daily Surface Water Temperature for Lake Michigan 	(Fahrenheit) 
+ \item[] \textbf{garden\_prcp} - Precipitation (PRCP) (inches)
+ \item[] \textbf{garden\_maxtmp} - Maximum temperature (TMAX) (Fahrenheit)
+ \item[] \textbf{garden\_mintmp} - Minimum temperature (TMIN) (Fahrenheit)
+ \item[] \textbf{garden\_tobs} - Temperature at time of observation (TOBS) (Fahrenheit)
+ \item[] \textbf{ohare\_wspd} - Average daily wind speed (AWND) (miles per hour) 
+ \item[] \textbf{ohare\_atmp} - Average Temperature (TAVG) (Fahrenheit)
+ \item[] \textbf{ohare\_w2dir} - Direction of fastest 2-minute wind (WDF2) (the direction the wind is coming from in degrees clockwise from true N)  
+ \item[] \textbf{ohare\_w2spd} - Fastest 2-minute wind speed (WSF2) (miles per hour)
+\end{enumerate}
+
+\text{Feature Engineering}
+\begin{enumerate}
+ \item[] \textbf{target} - absolute difference between the precipitation measurements at Ohare and the garden ( ohare\_prcp - garden\_prcp )
+ \item[] \textbf{garden\_didrain} - categorical, 1 for yes, 0 for no
+ \item[] \textbf{ohare\_didrain} - categorical, 1 for yes, 0 for no
+ \item[] \textbf{garden\_medtmp} - Median daily temperature at the Garden/ midpoint between the max and min temperatures ( (garden\_maxtmp + garden\_mintmp)/2 )
+ \item[] \textbf{ohare\_medtmp} - Median daily temperature at ohare/ midpoint between the max and min temperatures ( (ohare\_maxtmp + ohare\_mintmp)/2 )
+ \item[] \textbf{tmpdiff} - difference between the median temperatures at ohare and the garden ( ohare\_medtmp - garden\_medtmp )
+ \end{enumerate}  
+ 
+  
 
 
-\item Data Cleaning/Data Manipulation/EDA: 
-
-\hspace{5mm} Going from raw data to the modeling stage required a few transformations
 
 
-\begin{itemize}
-\item Null values
-	\subitem Three rows, 616, 1327, 1712 were determined to have 10 troublesome null values.  They were dropped.  
-	\subitem The 'Garage Yr Blt' feature had 114 cells that were null.  There was not any clear way of understanding these empty measurements.  So, the rows were dropped.
-	\subitem The 'Mas Vnr Area' column had 22 cells that were null.  In this instance it is reasonable to assume a null in this instance is representing 0 square feet.  So, the cells here were filled with the number zero.
-\item Dropped Columns
-	\subitem The 'Lot Frontage' feature was dropped from the dataframe.  It was a hard feature to even interpret, let alone determine what the null values might represent.
-	\item Data Conversion
-	\subitem The 'Central Air' feature was converted from an object series to an int series by replacing any Yes ('Y') with a 1 and any No ('N') with a 0.
-	\subitem The 'Paved Drive' feature was converted from an object series to a float series by populating 1 for 'Paved' 0 for 'not paved gravel/dirt', and 0.5 for 'Partial Paved.'
-        
-\end{itemize}
 
-\hspace{5mm} Note that, central to our research question, we started by doing little work to the descriptors aside from handling nulls, and gradually increased the amount of complexity present in our model creation.  Ultimately, the biggest trend noticed was, all things being considered, the data tends to increase in accuracy as the number of features being used increases.  That is to say, with more data comes better predictions.  There was one exception to this rule, but in this exception we note that there was not\dots
 
-\item Feature Engineering:
 
-\hspace{5mm} We did not use feature engineering during this project.  However, we do believe there is plenty of room to increase our models accuracy, and that feature engineering could definitely be a primary contributor. 
-    
-\item Features Matrix: 
+\item \textbf{Data Cleaning/Data Manipulation/EDA}: 
 
-\hspace{5mm} The first analysis used 10 features.  They were
 
-'Overall Qual', 'Year Built', 'Year Remod/Add', 'Total Bsmt SF',
-       '1st Flr SF', 'Gr Liv Area', 'Full Bath', 'TotRms AbvGrd',
-       'Garage Cars', 'Garage Area'
 
-\hspace{5mm} The last analysis used 39 features.  They are list below.
+\item \textbf{Models and Evaluation}:
 
-'Id', 'PID', 'MS SubClass', 'Lot Area', 'Overall Qual', 'Overall Cond', 'Year Built', 'Year Remod/	Add', 'Mas Vnr Area', 'BsmtFin SF 1', 'BsmtFin SF 2', 'Bsmt Unf SF', 'Total Bsmt SF', 	'Central Air', '1st Flr SF', '2nd Flr SF', 'Low Qual Fin SF', 'Gr Liv Area', 'Bsmt Full Bath', 	'Bsmt Half Bath', 'Full Bath', 'Half Bath', 'Bedroom AbvGr', 'Kitchen AbvGr', 'TotRms 		AbvGrd', 'Fireplaces', 'Garage Yr Blt', 'Garage Cars', 'Garage Area', 'Paved Drive', 'Wood 	Deck SF', 'Open Porch SF', 'Enclosed Porch', '3Ssn Porch', 'Screen Porch', 'Pool Area', 	'Misc Val', 'Mo Sold', 'Yr Sold'
+\begin{table}[h]
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+Model                                   & Training score & Testing score & Training MSE & Testing MSE & cross validation \\ \hline
+Linear no poly                          & 0.0825         & 0.1052        & 0.0933       & 0.0683      & 0.0785           \\ \hline
+Linear gs                               & 0.1222         & 0.1329        & 0.0893       & 0.0662      & 0.0984           \\ \hline
+Decision Tree                           & 0.1139         & 0.0691        & 0.0901       & 0.0711      & 0.0429           \\ \hline
+Decision Tree gs                        & 0.0937         & 0.0584        & 0.0922       & 0.0719      & 0.0450           \\ \hline
+Random Forest                           & 0.8614         & 0.0517        & 0.0134       & 0.0724      & 0.0554           \\ \hline
+Random Forest                           & 0.8711         & 0.1078        & 0.0131       & 0.0681      & 0.0770           \\ \hline
+Random Forest gs                        & 0.8658         & 0.0905        & 0.0136       & 0.0694      & 0.0651           \\ \hline
+Random Forest                           & 0.8677         & 0.0682        & 0.0135       & 0.0711      & 0.0660           \\ \hline
+Random Forest                           & 0.8704         & 0.1153        & 0.0132       & 0.0676      & 0.0767           \\ \hline
+Random Forest                           & 0.8080         & 0.0957        & 0.0195       & 0.0690      & 0.0787           \\ \hline
+Random Forest ada                       & 0.9547         & 0.0549        & 0.0331       & 0.0722      & 0.0331           \\ \hline
+Random Forest ada                       & 0.9445         & 0.0525        & 0.0056       & 0.0723      & 0.0283           \\ \hline
+\multicolumn{1}{|l|}{Random Forest bag} & 0.6735         & 0.1130        & 0.0332       & 0.0677      & 0.0928           \\ \hline
+\multicolumn{1}{|l|}{Random Forest bag} & 0.6705         & 0.1239        & 0.0335       & 0.0669      & 0.0943           \\ \hline
+\end{tabular}
+\end{table}
 
-\hspace{5mm} A careful look at these two lists shows that every item contained in the first data set is also included in the last.  As the analysis proceeded, except for one instance, the analyses got better.
-    
-\item Cross-Validation:
 
-\hspace{5mm} Yes!  Train/Test split and CV were key elements in all iterations of the model construction.
-\begin{itemize}
-\item During this project we stuck exclusively with an 80/20 ratio between the train and test sets during cross-validation.  This was merely a product of trying a few at the beginning and it being the option that produced the best fitting model.  So, we stuck with it throughout the completion of the assignment.
-\item We did also modify the random state parameter to be 75.  This number was settled on after doing a for-loop to find a "good" candidate. 
-
-\item We used CV with 5 folds in all cases simply because the recommendation from Riley was either 3 or 5.  
-\end{itemize}
-
-\item Preprocessing:
-
-\hspace{5mm} We performed six different analyses.  Five of them used a Standard Scale. After the initial model construction it was determined that a Power Transformation might be helpful in determining a best fir model.  However, the RMSE score that came back was significantly higher than the score being generated by the other model.  So, we abandoned the Power Transformation approach for the Standard Scale in all subsequent models.  However, we take the time to note, since the target data "SalePrice" is right skewed, a power transformation could actually yield positive and useful results within future attempts at updating or improving our models.
-
-\item Model:
-
-\hspace{5mm} This project used ordinary linear regression along with Lasso and Ridge regularization.  It was not computationally expensive to use all of these models.  The final submission, which yielded the lowest RMSE score came from performing a grid search on a pipeline through a Lasso Regularization to determine an optimal alpha.  
-            
-\item Model Evaluation:
-
-\hspace{5mm} The success of our models was determined by the RMSE score.  The Kaggle.com listing used this metric, and we deferred to it's calculation.  It should be noted that within the Jupyter Notebooks containing the analyses the listed score is the R$^2$.  In all of our models the training and CV scores were close and the testing scores are a little higher.  We believe this is an indication of the potential to improve our model.  
-
-\item Recommendations/Insights?
-
-\hspace{5mm} Whenever attempting to build a model, easy re-implementation should always be a goal upfront.  As a project unfolds it will become necessary to add or remove features,  re-manipulate, or change the general model processes to attempt to improve the current working model.  Keeping good checks in place (like functions and well catalogued scripts) can make it easy to transition from one model construction to the next.
-
-\hspace{5mm} It is also noteworthy that a lot can be done with a little amount of data alterations.  Through six iterations, there was not significant change in the input being used to generate the model.  
 
 
 \end{enumerate}
