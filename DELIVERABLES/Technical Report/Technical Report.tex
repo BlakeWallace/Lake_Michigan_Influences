@@ -1,0 +1,203 @@
+% --------------------------------------------------------------
+% This is all preamble stuff that you don't have to worry about.
+% Head down to where it says "Start here"
+% --------------------------------------------------------------
+ 
+\documentclass[10pt]{article}
+%\setlength\parindent{24pt}  ??????????
+
+\usepackage[margin=0.8in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{setspace}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{latexsym}
+\usepackage{enumerate}
+\usepackage{setspace}
+\usepackage{mathrsfs}
+\usepackage{hyperref} % This package enables hyperlinks
+\renewcommand{\qedsymbol}{$\blacksquare$} %This command makes the end-of-proof boxes solid black.
+\usepackage{amscd}
+\usepackage{mathtools}
+
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%controls position of matrix elements.
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+ 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\def\ep{\varepsilon}
+\def\bR{\mathbb{R}}
+\def\S{\mathbb{S}}
+\def\C{\mathbb{C}}
+\def\CP{\mathbb{CP}}
+\def\bA{\mathscr{A}}
+\def\lA{\lambda}
+\def\a{\alpha}
+\def\g{\gamma}
+\def\e{\epsilon}
+\def\p{\partial}
+\def\sB{\mathscr{B}}
+\def\la{\langle}
+\def\ra{\rangle}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\def\n{\norm}
+\def\o{\overline}
+
+
+\newmuskip\pFqskip % this code is for the Hypergeometric notation
+\pFqskip=6mu
+\mathchardef\pFcomma=\mathcode`, % keep a copy of the comma
+
+\newcommand*\pQq[5]{%this code is a continuation of the Hypergeometric notation
+  \begingroup
+  \begingroup\lccode`~=`,
+    \lowercase{\endgroup\def~}{\pFcomma\mkern\pFqskip}%
+  \mathcode`,=\string"8000
+  {}_{#1}\phi_{#2}\biggl(\genfrac..{0pt}{}{#3}{#4};#5\biggr)%
+  \endgroup
+}
+
+\renewcommand{\labelitemi}{$\textendash$} %this code resets the top list marker to a dash
+
+ 
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{reflection}[2][Reflection]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{proposition}[2][Proposition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+
+% For an exam, single spacing is most appropriate
+%\singlespacing
+% \onehalfspacing%%%
+% \doublespacing
+
+% For an exam, we generally want to turn off paragraph indentation
+\parindent 0ex
+%\def\baselinestretch{2} % double spacing
+
+\begin{document}
+%\doublespacing
+ 
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+ 
+%\renewcommand{\qedsymbol}{\filledbox}
+ 
+\title{Weather in Chicago}%replace X with the appropriate number
+\author{Blake Wallace\\ %replace with your name
+Capstone Technical Report} %if necessary, replace with your course title
+\date{May 14, 2019}
+ 
+\maketitle
+
+\vspace{2mm}
+
+\begin{enumerate}[\null]
+
+\item \textbf{Data science objectives}:
+\begin{enumerate}
+\item[i.] Is it possible to build a model that is easily re-implemented?
+\item[ii.] Can we get a better score on each new submission to Kaggle?
+\end{enumerate}
+ 
+
+
+\item Data: 
+
+\hspace{5mm} See the \href{https://www.kaggle.com/c/dsi-us-7-project-2-regression-challenge/data}	{data dictionary} in Kaggle
+
+\begin{itemize}
+\item This data is from the Amos, IA housing market between the years 2006 and 2010
+\item There are 2051 data points in the training data, each having up to 80 descriptors.
+\item There are null values in the data.  More will be said about this in what follows.
+\end{itemize}
+
+
+\item Data Cleaning/Data Manipulation/EDA: 
+
+\hspace{5mm} Going from raw data to the modeling stage required a few transformations
+
+
+\begin{itemize}
+\item Null values
+	\subitem Three rows, 616, 1327, 1712 were determined to have 10 troublesome null values.  They were dropped.  
+	\subitem The 'Garage Yr Blt' feature had 114 cells that were null.  There was not any clear way of understanding these empty measurements.  So, the rows were dropped.
+	\subitem The 'Mas Vnr Area' column had 22 cells that were null.  In this instance it is reasonable to assume a null in this instance is representing 0 square feet.  So, the cells here were filled with the number zero.
+\item Dropped Columns
+	\subitem The 'Lot Frontage' feature was dropped from the dataframe.  It was a hard feature to even interpret, let alone determine what the null values might represent.
+	\item Data Conversion
+	\subitem The 'Central Air' feature was converted from an object series to an int series by replacing any Yes ('Y') with a 1 and any No ('N') with a 0.
+	\subitem The 'Paved Drive' feature was converted from an object series to a float series by populating 1 for 'Paved' 0 for 'not paved gravel/dirt', and 0.5 for 'Partial Paved.'
+        
+\end{itemize}
+
+\hspace{5mm} Note that, central to our research question, we started by doing little work to the descriptors aside from handling nulls, and gradually increased the amount of complexity present in our model creation.  Ultimately, the biggest trend noticed was, all things being considered, the data tends to increase in accuracy as the number of features being used increases.  That is to say, with more data comes better predictions.  There was one exception to this rule, but in this exception we note that there was not\dots
+
+\item Feature Engineering:
+
+\hspace{5mm} We did not use feature engineering during this project.  However, we do believe there is plenty of room to increase our models accuracy, and that feature engineering could definitely be a primary contributor. 
+    
+\item Features Matrix: 
+
+\hspace{5mm} The first analysis used 10 features.  They were
+
+'Overall Qual', 'Year Built', 'Year Remod/Add', 'Total Bsmt SF',
+       '1st Flr SF', 'Gr Liv Area', 'Full Bath', 'TotRms AbvGrd',
+       'Garage Cars', 'Garage Area'
+
+\hspace{5mm} The last analysis used 39 features.  They are list below.
+
+'Id', 'PID', 'MS SubClass', 'Lot Area', 'Overall Qual', 'Overall Cond', 'Year Built', 'Year Remod/	Add', 'Mas Vnr Area', 'BsmtFin SF 1', 'BsmtFin SF 2', 'Bsmt Unf SF', 'Total Bsmt SF', 	'Central Air', '1st Flr SF', '2nd Flr SF', 'Low Qual Fin SF', 'Gr Liv Area', 'Bsmt Full Bath', 	'Bsmt Half Bath', 'Full Bath', 'Half Bath', 'Bedroom AbvGr', 'Kitchen AbvGr', 'TotRms 		AbvGrd', 'Fireplaces', 'Garage Yr Blt', 'Garage Cars', 'Garage Area', 'Paved Drive', 'Wood 	Deck SF', 'Open Porch SF', 'Enclosed Porch', '3Ssn Porch', 'Screen Porch', 'Pool Area', 	'Misc Val', 'Mo Sold', 'Yr Sold'
+
+\hspace{5mm} A careful look at these two lists shows that every item contained in the first data set is also included in the last.  As the analysis proceeded, except for one instance, the analyses got better.
+    
+\item Cross-Validation:
+
+\hspace{5mm} Yes!  Train/Test split and CV were key elements in all iterations of the model construction.
+\begin{itemize}
+\item During this project we stuck exclusively with an 80/20 ratio between the train and test sets during cross-validation.  This was merely a product of trying a few at the beginning and it being the option that produced the best fitting model.  So, we stuck with it throughout the completion of the assignment.
+\item We did also modify the random state parameter to be 75.  This number was settled on after doing a for-loop to find a "good" candidate. 
+
+\item We used CV with 5 folds in all cases simply because the recommendation from Riley was either 3 or 5.  
+\end{itemize}
+
+\item Preprocessing:
+
+\hspace{5mm} We performed six different analyses.  Five of them used a Standard Scale. After the initial model construction it was determined that a Power Transformation might be helpful in determining a best fir model.  However, the RMSE score that came back was significantly higher than the score being generated by the other model.  So, we abandoned the Power Transformation approach for the Standard Scale in all subsequent models.  However, we take the time to note, since the target data "SalePrice" is right skewed, a power transformation could actually yield positive and useful results within future attempts at updating or improving our models.
+
+\item Model:
+
+\hspace{5mm} This project used ordinary linear regression along with Lasso and Ridge regularization.  It was not computationally expensive to use all of these models.  The final submission, which yielded the lowest RMSE score came from performing a grid search on a pipeline through a Lasso Regularization to determine an optimal alpha.  
+            
+\item Model Evaluation:
+
+\hspace{5mm} The success of our models was determined by the RMSE score.  The Kaggle.com listing used this metric, and we deferred to it's calculation.  It should be noted that within the Jupyter Notebooks containing the analyses the listed score is the R$^2$.  In all of our models the training and CV scores were close and the testing scores are a little higher.  We believe this is an indication of the potential to improve our model.  
+
+\item Recommendations/Insights?
+
+\hspace{5mm} Whenever attempting to build a model, easy re-implementation should always be a goal upfront.  As a project unfolds it will become necessary to add or remove features,  re-manipulate, or change the general model processes to attempt to improve the current working model.  Keeping good checks in place (like functions and well catalogued scripts) can make it easy to transition from one model construction to the next.
+
+\hspace{5mm} It is also noteworthy that a lot can be done with a little amount of data alterations.  Through six iterations, there was not significant change in the input being used to generate the model.  
+
+
+\end{enumerate}
+
+% --------------------------------------------------------------
+%     You don't have to mess with anything below this line.
+% --------------------------------------------------------------
+ 
+\end{document}
