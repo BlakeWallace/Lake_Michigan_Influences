@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  16 MAY 2019 15:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  16 MAY 2019 15:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -448,6 +448,10 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 LaTeX Warning: The counter will not be printed.
              The label is: \null  on input line 110.
 
+
+Package hyperref Warning: Suppressing link with empty target on input line 129.
+
+
 [1
 
 {/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
@@ -474,10 +478,10 @@ Here is how much of TeX's memory you used:
 ></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><
 /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></u
 sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on "Technical Report.pdf" (3 pages, 69156 bytes).
+Output written on "Technical Report.pdf" (3 pages, 70249 bytes).
 PDF statistics:
- 49 PDF objects out of 1000 (max. 8388607)
- 39 compressed objects within 1 object stream
+ 48 PDF objects out of 1000 (max. 8388607)
+ 38 compressed objects within 1 object stream
  10 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
