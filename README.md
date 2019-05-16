@@ -1,40 +1,24 @@
 # [Lake Michigan Influences](https://github.com/BlakeWallace/Lake_Michigan_Influences)
 05/16/2019
 
-The goal of this project is to explore the influences of the presense of Lake Michigan on the weather in the Chicagoland area. See the Wikipedia article on [The Chicago Metropolitan Area](https://en.wikipedia.org/wiki/Chicago_metropolitan_area).  There are two things....There are three data sources used during this exploration.  Two of them are primary to the core of the analyses and model construction.  Our metrics used during our model construction were the mean squared error and the coefficient of determination.  The construction of a model in the context of 
+The goal of this project is to explore the influences of the presense of Lake Michigan on the weather in the Chicagoland area. See the Wikipedia article on [The Chicago Metropolitan Area](https://en.wikipedia.org/wiki/Chicago_metropolitan_area).  This project goes granular, attempting to compare various weather parameters at two locations in the area, the [Chicago Botanical Gardens and Ohare International Airport](https://github.com/BlakeWallace/Lake_Michigan_Influences/blob/master/Technical_Report/Technical%20Report/photos/garden_ohare.png).  There are two sections to our analysis.  First, significance testing, to determine whether the data indicates any significant differences between the temperatures and precipitation measurements between the two explored locations.  Second, a predictive model is constructed using the other parameters to attempt to predict the absolute difference in the amount of precipitation between the weather towers at Ohare Airport and the Chicago Botanical Gardens.  There are three data sources used during this exploration.  Two of them are primary to the core of the analyses and model construction.  Our metrics used during our model construction were the mean squared error and the coefficient of determination; and, during significance testing, p-scores.  While the construction of a model in the context of 
 
 **Sources:** 
  - Primary
-1.  [Global Historical Climatology Network (GHCN) – Daily Documentation](https://www1.ncdc.noaa.gov/pub/data/cdo/documentation/GHCND_documentation.pdf)
+1.  [NOAA National Centers for Environmental Information's Global Historical Climatology Network (GHCN)](https://www.ncdc.noaa.gov/cdo-web/search)
+     - [CHICAGO OHARE INTERNATIONAL AIRPORT, IL US](https://www.ncdc.noaa.gov/cdo-web/datasets/GHCND/stations/GHCND:USW00094846/detail)
+     - [CHICAGO BOTANIC GARDEN, IL US](https://www.ncdc.noaa.gov/cdo-web/datasets/GHCND/stations/GHCND:USC00111497/detail)
 2.  [Great Lakes Statistics: Average Surface Water Temperature from the Great Lakes Surface Environmental Analysis (GLSEA)](https://coastwatch.glerl.noaa.gov/statistic/statistic.html)
+     - [Lake Michigan](https://en.wikipedia.org/wiki/Lake_Michigan)
  - Secndary
 3.  [National Data Buoy Center (NDBC)](https://www.ndbc.noaa.gov/)  
+     - [Station FSTI2 - Foster Ave., Chicago, IL](https://www.ndbc.noaa.gov/station_page.php?station=fsti2)
 
-**Data:**
-#### [CHICAGO OHARE INTERNATIONAL AIRPORT, IL US](https://www.ncdc.noaa.gov/cdo-web/datasets/GHCND/stations/GHCND:USW00094846/detail)
- - Source: [National Centers for Environmental Information](https://www.ncdc.noaa.gov/cdo-web/search)  
- - [GHCN (Global Historical Climatology Network) – Daily Documentation](https://www1.ncdc.noaa.gov/pub/data/cdo/documentation/GHCND_documentation.pdf)
-  - ID	GHCND:USW00094846  
-    41.995 N 87.9336 W 
- - [Airport Information](https://www.flychicago.com/ohare/home/pages/default.aspx)
- 
-#### [CHICAGO BOTANIC GARDEN, IL US](https://www.ncdc.noaa.gov/cdo-web/datasets/GHCND/stations/GHCND:USC00111497/detail)
- - Source: [National Centers for Environmental Information](https://www.ncdc.noaa.gov/cdo-web/search)
- - [GHCN (Global Historical Climatology Network) – Daily Documentation](https://www1.ncdc.noaa.gov/pub/data/cdo/documentation/GHCND_documentation.pdf)
-  - ID GHCND:USC00111497
-    42.13987 N 87.78537 W
- - [Garden Information](https://www.chicagobotanic.org/?gclid=CjwKCAjw8e7mBRBsEiwAPVxxiFAzbi0I4VKZUO1z3uxcDI36xORzYwbOtmUWGVoUqxRHEi8elJFV2RoCmaoQAvD_BwE)
-    
-#### [Lake Michigan](https://www.google.com/search?q=lake+michigan&oq=lake+michigan&aqs=chrome.0.69i59j69i60l3j69i59j0.3015j0j9&sourceid=chrome&ie=UTF-8)
- - Source: [Great Lakes Statistics: Average Surface Water Temperature from the Great Lakes Surface Environmental Analysis (GLSEA)](https://coastwatch.glerl.noaa.gov/statistic/statistic.html)
- - 44.0 -87.0 (44° 00' 0.00" N 87° 00' 0.00" W)
- - [Example Data Set from 2018](https://coastwatch.glerl.noaa.gov/ftp/glsea/avgtemps/2018/glsea-temps2018_1024.dat)
- 
-#### [Station FSTI2 - Foster Ave., Chicago, IL](https://www.ndbc.noaa.gov/station_page.php?station=fsti2)
- - Source: [National Data Buoy Center](https://www.ndbc.noaa.gov/)
+**[Data Information](https://render.githubusercontent.com/view/ipynb?commit=81f218ce41e7bc575aa19aa3d07b72a2a92272fb&enc_url=68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f426c616b6557616c6c6163652f4c616b655f4d6963686967616e5f496e666c75656e6365732f383166323138636534316537626335373561613139616133643037623732613261393232373266622f646174612f446174615f44696374696f6e61726965732f446174615f496e666f726d6174696f6e2e6970796e62&nwo=BlakeWallace%2FLake_Michigan_Influences&path=data%2FData_Dictionaries%2FData_Information.ipynb&repository_id=183659877&repository_type=Repository#Data-Information)** 
 
- - Owned and maintained by [Chicago Park District](https://www.ndbc.noaa.gov/ndbcexit.php?url=https://wqdatalive.com/public/16&blurb=Chicago+Park+District)  
-    41.976 N 87.648 W (41°58'35" N 87°38'51" W)
+
+
+
 
 
 1.  An executive summary:
