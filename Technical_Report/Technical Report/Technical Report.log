@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  16 MAY 2019 18:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  17 MAY 2019 05:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -775,80 +775,114 @@ File: ./photos/garden_ohare_different_colors.png Graphic file (type png)
 
 <use ./photos/garden_ohare_different_colors.png>
 Package pdftex.def Info: ./photos/garden_ohare_different_colors.png used on inp
-ut line 136.
+ut line 131.
 (pdftex.def)             Requested size: 398.93158pt x 260.95567pt.
- [1
 
-{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./photo
-s/garden_ohare_different_colors.png>] <./photos/ohare.png, id=23, 665.48625pt x
- 453.695pt>
+<./photos/ohare.png, id=10, 665.48625pt x 453.695pt>
 File: ./photos/ohare.png Graphic file (type png)
-
-<use ./photos/ohare.png>
-Package pdftex.def Info: ./photos/ohare.png used on input line 151.
+ <use ./photos/ohare.png>
+Package pdftex.def Info: ./photos/ohare.png used on input line 146.
 (pdftex.def)             Requested size: 249.33128pt x 169.97598pt.
 
-<./photos/garden.png, id=28, 683.55376pt x 432.61626pt>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<./photos/garden.png, id=15, 683.55376pt x 432.61626pt>
 File: ./photos/garden.png Graphic file (type png)
 
 <use ./photos/garden.png>
-Package pdftex.def Info: ./photos/garden.png used on input line 165.
+Package pdftex.def Info: ./photos/garden.png used on input line 160.
 (pdftex.def)             Requested size: 249.33128pt x 157.7947pt.
-Missing character: There is no ° in font cmr10!
-Missing character: There is no ° in font cmr10!
-Missing character: There is no ° in font cmr10!
-Missing character: There is no ° in font cmr10!
- <./photos/FSTI2.png, id=35, 618.31pt x 382.42876pt>
-File: ./photos/FSTI2.png Graphic file (type png)
+ [1
 
-<use ./photos/FSTI2.png>
-Package pdftex.def Info: ./photos/FSTI2.png used on input line 185.
+{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./photo
+s/garden_ohare_different_colors.png>]
+Missing character: There is no ° in font cmr10!
+Missing character: There is no ° in font cmr10!
+Missing character: There is no ° in font cmr10!
+Missing character: There is no ° in font cmr10!
+
+<./photos/FSTI2.png, id=35, 618.31pt x 382.42876pt>
+File: ./photos/FSTI2.png Graphic file (type png)
+ <use ./photos/FSTI2.png>
+Package pdftex.def Info: ./photos/FSTI2.png used on input line 180.
 (pdftex.def)             Requested size: 249.33128pt x 154.21172pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [2 <./photos/ohare.png> <./photos/garden.png>]
-Overfull \hbox (1.56844pt too wide) in paragraph at lines 228--229
+Overfull \hbox (1.56844pt too wide) in paragraph at lines 223--224
 []\OT1/cmr/bx/n/10 target \OT1/cmr/m/n/10 - ab-so-lute dif-fer-ence be-tween th
 e pre-cip-i-ta-tion mea-sure-ments at Ohare and the gar-den ( ohare[]prcp
  []
 
-[3 <./photos/FSTI2.png>]
-Overfull \hbox (53.49094pt too wide) in paragraph at lines 281--299
+
+Overfull \hbox (18.51035pt too wide) in paragraph at lines 260--268
  [] 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 317.
-[4]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 317.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[3 <./photos/FSTI2.png>]
+<./photos/temp_scatter_full_noTitle.png, id=61, 398.48875pt x 272.01625pt>
+File: ./photos/temp_scatter_full_noTitle.png Graphic file (type png)
+
+<use ./photos/temp_scatter_full_noTitle.png>
+Package pdftex.def Info: ./photos/temp_scatter_full_noTitle.png used on input l
+ine 278.
+(pdftex.def)             Requested size: 249.33128pt x 170.1965pt.
+
+<./photos/t-test_for_the_full_dataset.png, id=62, 494.84875pt x 307.1475pt>
+File: ./photos/t-test_for_the_full_dataset.png Graphic file (type png)
+
+<use ./photos/t-test_for_the_full_dataset.png>
+Package pdftex.def Info: ./photos/t-test_for_the_full_dataset.png used on input
+ line 283.
+(pdftex.def)             Requested size: 249.33128pt x 154.75441pt.
+ [4 <./photos/temp_scatter_full_noTitle.png> <./photos/t-test_for_the_full_data
+set.png>]
+Overfull \hbox (53.49094pt too wide) in paragraph at lines 296--314
+ [] 
+ []
+
+[5] <./photos/lake_temp_nov2016_jun2017.png, id=79, 392.46625pt x 279.0425pt>
+File: ./photos/lake_temp_nov2016_jun2017.png Graphic file (type png)
+
+<use ./photos/lake_temp_nov2016_jun2017.png>
+Package pdftex.def Info: ./photos/lake_temp_nov2016_jun2017.png used on input l
+ine 334.
+(pdftex.def)             Requested size: 249.33128pt x 177.27516pt.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 347.
+ [6 <./photos/lake_temp_nov2016_jun2017.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 347.
  (./Technical Report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 317.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 317.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 347.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 347.
 Package rerunfilecheck Info: File `"Technical Report".out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 317.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 347.
  ) 
 Here is how much of TeX's memory you used:
- 15715 strings out of 493089
- 305951 string characters out of 6134842
- 348939 words of memory out of 5000000
- 19027 multiletter control sequences out of 15000+600000
+ 15741 strings out of 493089
+ 306706 string characters out of 6134842
+ 350315 words of memory out of 5000000
+ 19044 multiletter control sequences out of 15000+600000
  15037 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,9n,39p,10385b,889s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 39i,10n,39p,10385b,951s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
-></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><
-/usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></u
-sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on "Technical Report.pdf" (4 pages, 1129805 bytes).
+></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
+</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></
+usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
+r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/
+local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/lo
+cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb>
+Output written on "Technical Report.pdf" (6 pages, 1199193 bytes).
 PDF statistics:
- 85 PDF objects out of 1000 (max. 8388607)
- 66 compressed objects within 1 object stream
- 17 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 117 PDF objects out of 1000 (max. 8388607)
+ 87 compressed objects within 1 object stream
+ 23 named destinations out of 1000 (max. 500000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
 

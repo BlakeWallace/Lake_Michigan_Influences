@@ -119,13 +119,8 @@ Capstone Technical Report} %if necessary, replace with your course title
 
 \item \textbf{Data science objectives}:
 \begin{enumerate}
-\item[1.] Does Rain have any effect on the average daily temperatures?
-\item[2.] What effect does rain have on the average daily temperature near the water?
-\item[3.] What effect does rain have on the average daily temperature far from the water?
-\item[4.] When it rains, is there a statistically significant difference between the amount of rain that falls in downtown Chicago compared to the Ohare airport?
-\item[5.] How much correlation exists between the average daily temperature of Lake Michigan and the temperature difference between the downtown Chicago area and the Ohare airport?
-\item[6.] Can we build a model that predicts with at least 80\% accuracy the difference in total precipitation between Ohare airport and the the Botanical gardens?
-\item[7.] Is there a statistically significant difference between the daily temperature near the water as apposed to far from the water?
+\item[1.] Are there any statistically significant differences in temperature closer to the water?
+\item[2.] Can a predictive model that explains at least 80\% of the variance in the precipitation differences be constructed?
 \end{enumerate}
  
 
@@ -245,10 +240,6 @@ Capstone Technical Report} %if necessary, replace with your course title
 \item \textbf{Data Cleaning/Data Manipulation/EDA}: 
 
 
-Figure \ref{fig:ohare} shows the .
-
-
-
 
 
 
@@ -256,29 +247,53 @@ Figure \ref{fig:ohare} shows the .
 
 \item \textbf{Tests and Evaluation}:
 
-\begin{table}[!h]
-  \begin{center}
-      \caption{Statistical Tests with Results}
-      
-	          \begin{tabular}{|c|c|c|c|c|c|}
-		     \hline
-			\textbf{Data}  & \textbf{t-score} & \textbf{p-value} & \textbf{Significance} & 					\textbf{Gardens Avg (F)} & \textbf{Ohare Avg (F)} \\ \hline
-			All Data    & 0.5876  & 0.5568  & None         & 59.24           & 59.43         \\ 				\hline
-			No Rain     & 3.285   & 0.0010  & Yes          & 58.99           & 60.57         \\ \hline
-			Both Rain   & -2.629  & 0.0086  & Yes          & 59.48           & 57.7          \\ \hline
-			ohareRain   & -1.9557 & 0.0506  & None         & 59.06           & 57.43         \\ 				\hline
-			gardensRain & 0.0904  & 0.9280  & None         & 59.99           & 60.07         \\ 				\hline
+In this section we will perform several two-tailed hypothesis tests, all of the form:
+
+\begin{align*}
+ H_0: & \text{ the average temperatures are the same}, \\
+ H_A: & \text{ the average temperatures are different}.
+\end{align*}
+
+
+\begin{table}[h!]
+	\begin{center}
+	\begin{tabular}{|c|c|c|c|c|c|c|}\hline
+			\textbf{Data}  & \textbf{Quantity of Data} & \textbf{t-score} & \textbf{p-value} & 				\textbf{Significance} & \textbf{Gardens Avg (F)} & \textbf{Ohare Avg (F)} \\ 				\hline
+			All Data    & 7923 & 0.5876  & 0.5568  & None  & 59.24  & 59.43 \\ \hline
+			No Rain     & 4022 & 3.285   & 0.0010  & Yes  & 58.99  & 60.57   \\ \hline
+			Both Rain   & 1648 & -2.629  & 0.0086  & Yes   & 59.48    & 57.7   \\ \hline
+			ohareRain   & 1193 & -1.9557 & 0.0506  & None   & 59.06   & 57.43   \\ \hline
+			gardensRain & 1060 & 0.0904  & 0.9280  & None   & 59.99   & 60.07  \\ \hline
 	\end{tabular}
-  \end{center}
+        \caption{Statistical Tests with Results}
+        \label{table:tests}
+        \end{center}
 \end{table}
 
+Table \ref{table:tests} shows the results from five different tests.  The first row considers the dataset containing all of the weather measurements from January, 1995 through December, 2018.  The second row represents when there is no rain at either location, the third row when there is rain at both locations, and the last two indicate when there is rain at only the airport, or only the gardens,  respectively.  As can be seen, with a very small $p$-value, there is a significant difference between the average maximum temperatures when it rains at both locations and when it is not raining at either location.  This indicates that, given that there is no precipitation at either location, there is less than 0.1\% chance of rejecting the Null Hypothesis incorrectly.  Since this number is so small, there is evidence to reject the null hypothesis, indicating that there is most likely a difference in the average maximum temperatures between the two locations.  
 
+\begin{figure}[h!]
+  \caption{\textbf{Temperature/ Full Data (F)}}
+  \label{fig:Ohare_full_dataset}
+  \includegraphics[width=0.5\textwidth]{./photos/temp_scatter_full_noTitle.png}
+  \centering
+\end{figure}
+
+\begin{figure}[h!]
+  \includegraphics[width=0.5\textwidth]{./photos/t-test_for_the_full_dataset.png}
+  \centering
+  \caption{t-statistic for the full dataset}
+  \label{fig:t-statisticFull}
+\end{figure}
+
+\newpage
 \item \textbf{Models and Evaluation}:
 
-\begin{table}[h]
-  \begin{center}
-    \caption{Predictive Models with their scores}
-		\begin{tabular}{|c|c|c|c|c|c|}
+\begin{table}[h!]
+	\begin{center}
+	\caption{Predictive Models with their scores}
+	\label{table:models}
+	\begin{tabular}{|c|c|c|c|c|c|}
 			\hline
 				\textbf{Model}   & \textbf{Training score*} & \textbf{Testing score*} & 						\textbf{Training MSE**} & \textbf{Testing MSE**} & \textbf{Cross 					Validation} \\ \hline
 				Linear no poly                          & 0.0825         & 0.1052        & 0.0933       					& 0.0683      & 0.0785           \\ \hline
@@ -295,7 +310,7 @@ Figure \ref{fig:ohare} shows the .
 				Random Forest ada                       & 0.9445         & 0.0525        & 0.0056       					& 0.0723      & 0.0283           \\ \hline
 				\multicolumn{1}{|l|}{Random Forest bag} & 0.6735         & 0.1130        & 					0.0332       & 0.0677      & 0.0928           \\ \hline
 				\multicolumn{1}{|l|}{Random Forest bag} & 0.6705         & 0.1239        & 					0.0335       & 0.0669      & 0.0943           \\ \hline
-		\end{tabular}
+	\end{tabular}
 	\end{center}
 \textbf{*} The score refers to the Coefficient of Determination. 
 
@@ -306,7 +321,22 @@ Figure \ref{fig:ohare} shows the .
 \textbf{ada} denotes an Ada Boost model was performed.
 \end{table}
 
+\newpage
+\item \textbf{Future Iterations}:
+
+The presence of the statistically significant differences between the average maximum daily temperatures closer to the water and further away from the water is striking, and this must be the next line of investigation. It is likely that there are seasons of the year when more rain falls, traditionally in the Spring, when the Lake Michigan water temperature is usually close to it's lowest point.  It is believed that, since the temperature difference when there is no rain has a lower temperature at the Botanical Gardens, that this must occur more often when the lake is at its lowest temperature and climbing.  As depicted in Figure \ref{fig:lake_temp_nov2016_jun2017}, the lowest point of the lake temperatures occurs around the end of winter, beginning of spring.  This will be the next line of investigation.
+
+Regarding modeling, the next step will be to investigate temperature fields around the Chicagoland area.  To do this, it is necessary to consider data from many other locations.  While the problem of incomplete data will be present, increasing the volume, and time-correlating it will mean that a less lengthy time period will be necessary to capture the temperature trends.  The predictive element is present when extrapolating temperature in the holes between the specific locations.  The spatio-temporal nature of this problem means a more sophisticated approach must be taken to predict temperatures in the gaps between locations where temperature measurements are made. 
+
+\begin{figure}[h!]
+  \caption{\textbf{Lake Michigan Avgs, Nov 2016 - June 2017}}
+  \label{fig:lake_temp_nov2016_jun2017}
+  \includegraphics[width=0.5\textwidth]{./photos/lake_temp_nov2016_jun2017.png}
+  \centering
+\end{figure}
 \item \textbf{Resources}:
+
+
 
 \end{enumerate}
 
