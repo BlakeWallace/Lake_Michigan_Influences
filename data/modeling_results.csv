@@ -1,15 +1,15 @@
-Model,Training score,Testing score,Training MSE,Testing MSE,cross validation,View
- Linear no poly ,0.0825,0.1052,0.0933,0.0683,0.0785, [link](#linear1) 
- Linear gs ,0.1222,0.1329,0.0893,0.0662,0.0984, [link](#linear2) 
- Decision Tree ,0.1139,0.0691,0.0901,0.0711,0.0429, [link](#decision1) 
- Decision Tree gs ,0.0937,0.0584,0.0922,0.0719,0.045, [link](#decision2) 
- Random Forest ,0.8614,0.0517,0.0134,0.0724,0.0554, [link](#forest1) 
- Random Forest ,0.8711,0.1078,0.0131,0.0681,0.077, [link](#forest2) 
- Random Forest gs ,0.8658,0.0905,0.0136,0.0694,0.0651, [link](#forest3) 
- Random Forest ,0.8677,0.0682,0.0135,0.0711,0.066, [link](#forest4) 
- Random Forest ,0.8704,0.1153,0.0132,0.0676,0.0767, [link](#forest5) 
- Random Forest ,0.808,0.0957,0.0195,0.069,0.0787, [link](#forest6) 
- Random Forest ada ,0.9547,0.0549,0.0331,0.0722,0.0331, [link](#forest7) 
- Random Forest ada ,0.9445,0.0525,0.0056,0.0723,0.0283, [link](#forest8) 
- Random Forest bag ,0.6735,0.113,0.0332,0.0677,0.0928, [link](#forest9) 
- Random Forest bag ,0.6705,0.1239,0.0335,0.0669,0.0943, [link](#forest10) 
+Model,Training score,Testing score,Training MSE,Testing MSE,cross validation
+ Linear no poly ,0.0825,0.1052,0.0933,0.0683,0.0785
+ Linear gs ,0.1222,0.1329,0.0893,0.0662,0.0984
+ Decision Tree ,0.1139,0.0691,0.0901,0.0711,0.0429
+ Decision Tree gs ,0.0937,0.0584,0.0922,0.0719,0.045
+ Random Forest ,0.8614,0.0517,0.0134,0.0724,0.0554
+ Random Forest ,0.8711,0.1078,0.0131,0.0681,0.077
+ Random Forest gs ,0.8658,0.0905,0.0136,0.0694,0.0651
+ Random Forest ,0.8677,0.0682,0.0135,0.0711,0.066
+ Random Forest ,0.8704,0.1153,0.0132,0.0676,0.0767
+ Random Forest ,0.808,0.0957,0.0195,0.069,0.0787
+ Random Forest ada ,0.9547,0.0549,0.0331,0.0722,0.0331
+ Random Forest ada ,0.9445,0.0525,0.0056,0.0723,0.0283
+ Random Forest bag ,0.6735,0.113,0.0332,0.0677,0.0928
+ Random Forest bag ,0.6705,0.1239,0.0335,0.0669,0.0943
