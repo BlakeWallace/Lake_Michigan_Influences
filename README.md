@@ -22,7 +22,7 @@ The National Weather Service monitors a plethora of weather variables utilizing 
 
 There are two sections to the analysis.  First, two-tailed t-testing, to determine whether the data indicates any significant differences in temperature and precipitation measurements between the two locations.  Second, as a data scientist. the goal is to use data to make predictions.  To this end, a predictive model is constructed using supplemental parameters to attempt to predict the absolute difference in the amount of precipitation between the weather towers at Ohare Airport and the Chicago Botanical Gardens.  
 
-There are three data sources used during this exploration.  Two of them are primary to the core of the analysis and modeling.  The third is planned for future iterations.  The metrics used during model construction are the mean squared error and the coefficient of determination.  During significance testing, p-score of two-tailed t-tests are analyzed to determine levels of safely excepting differences in temperatures.  
+There are three data sources used during this exploration.  Two of them are primary to the core of the analysis and modeling.  The third is planned for future iterations.  The metrics used during model construction are the mean squared error and the coefficient of determination.  During significance testing, p-scores of two-tailed t-tests are analyzed to determine levels of safely excepting differences in temperatures.  
 
 While the construction of a predictive model in the context of our data proved to be less than ideal, the t-testing does clearly show significant temperature differences under various weather conditions.
 
