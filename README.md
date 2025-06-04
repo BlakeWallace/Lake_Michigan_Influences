@@ -7,7 +7,7 @@ The goal of this project is to explore the influences of the presense of Lake Mi
 **Contents**
 
   - [README](https://github.com/BlakeWallace/Lake_Michigan_Influences#lake-michigan-influences) - Provides an overview of the repository  
-  - [Technical Report](https://github.com/BlakeWallace/Lake_Michigan_Influences/blob/master/Technical_Report/Technical%20Report/Technical%20Report.pdf)  
+  - [Technical Report](https://github.com/BlakeWallace/Lake_Michigan_Influences/blob/master/Technical_Report/Technical%20Report/Technical%20Report.pdf?raw=true)  
  **Data**
   - [data](https://github.com/BlakeWallace/Lake_Michigan_Influences/tree/master/data) - Contains various datasets that will be found in the notebooks.  
  **Jupyter Notebooks**
