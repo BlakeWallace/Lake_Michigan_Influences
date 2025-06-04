@@ -7,6 +7,7 @@ The goal of this project is to explore the influences of the presense of Lake Mi
 **Contents**
 
   - [README](https://github.com/BlakeWallace/Lake_Michigan_Influences#lake-michigan-influences) - Provides an overview of the repository  
+  - [Research_Process](https://github.com/BlakeWallace/Lake_Michigan_Influences/blob/working/Research_Process.md)  
   - [References](https://github.com/BlakeWallace/Lake_Michigan_Influences/tree/master/References)  
       - [Spatio-Temporal_Modelling_In_The_Pacific_NW.pdf](https://github.com/BlakeWallace/Lake_Michigan_Influences/blob/master/References/Spatio-Temporal_Modelling_In_The_Pacific_NW.pdf?raw=true)  
   - [Technical Report](https://github.com/BlakeWallace/Lake_Michigan_Influences/tree/master/Technical_Report)  
