@@ -13,9 +13,9 @@ The goal of this project is to explore the influences of the presense of Lake Mi
   - [Technical Report](https://github.com/BlakeWallace/Lake_Michigan_Influences/tree/master/Technical_Report)  
       - [photos](https://github.com/BlakeWallace/Lake_Michigan_Influences/tree/master/Technical_Report/Technical%20Report/photos) - photos used in the report  
       - [Technical Report.pdf](https://github.com/BlakeWallace/Lake_Michigan_Influences/blob/master/Technical_Report/Technical%20Report/Technical%20Report.pdf?raw=true)  
- **Data**
+**Data**
   - [data](https://github.com/BlakeWallace/Lake_Michigan_Influences/tree/master/data) - Contains various datasets that will be found in the notebooks.  
- **Jupyter Notebooks**
+**Jupyter Notebooks**
   - [1_scraping_great_lakes_daily_average_temp_1995_2018](https://nbviewer.org/github/BlakeWallace/Lake_Michigan_Influences/blob/master/1_scraping_great_lakes_daily_average_temp_1995_2018.ipynb) - Collecting the data for Lake Michigan average daily temperatures  
   - [2_cleaning_lake_michigan_temp_data_1995_2019](https://github.com/BlakeWallace/Lake_Michigan_Influences/blob/master/2_cleaning_lake_michigan_temp_data_1995_2019.ipynb) - Cleaning the lake michigan data.  
   - [3_merging_the_data](https://github.com/BlakeWallace/Lake_Michigan_Influences/blob/master/3_merging_the_data.ipynb) - Cleaning and merging various datasets for analysis.  
