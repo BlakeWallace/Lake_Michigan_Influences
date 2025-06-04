@@ -28,13 +28,13 @@ The goal of this project is to explore the influences of the presense of Lake Mi
  
 **Overview**  
   
-The National Weather Service monitors a plethora of weather variables utilizing several different techniques, including satelites, buoys, towers, and ballons.  During this project, surface data collected at weather towers and buoys was explored.  The underlying analysis is granular in that it compares various weather parameters at two specific locations in the Chicagoland area, the [Chicago Botanical Gardens and Ohare International Airport](https://github.com/BlakeWallace/Lake_Michigan_Influences/blob/master/Technical_Report/Technical%20Report/photos/garden_ohare.png).   
+The National Weather Service monitors a plethora of weather variables utilizing several different techniques, including satelites, buoys, towers, and ballons.  Within this project, surface data collected at weather towers and buoys is explored.  The underlying analysis is granular in that it compares various weather parameters at two specific locations in the Chicagoland area, the [Chicago Botanical Gardens and Ohare International Airport](https://github.com/BlakeWallace/Lake_Michigan_Influences/blob/master/Technical_Report/Technical%20Report/photos/garden_ohare.png).   
 
-There are two sections to the analysis.  First, two-tailed t-testing, to determine whether the data indicates any significant differences in temperature and precipitation measurements between the two locations.  Second, predictive modeling.  To this end, a predictive model is constructed using supplemental parameters to attempt to predict the absolute difference in the amount of precipitation between the weather towers at Ohare Airport and the Chicago Botanical Gardens.  
+The analysis is split into two sections.  First, two-tailed t-testing determines whether the data indicates any significant differences in temperature and precipitation measurements between the two locations.  Second, predictive modeling.  To this end, a predictive model is constructed using supplemental parameters to attempt to predict the absolute difference in the amount of precipitation between the weather towers at Ohare Airport and the Chicago Botanical Gardens.  
 
 There are three data sources used during this exploration.  Two of them are primary to the core of the analysis and modeling.  The third is planned for future iterations.  The metrics used during model construction are the mean squared error and the coefficient of determination.  During significance testing, p-scores of two-tailed t-tests are analyzed to determine levels of safely excepting differences in temperatures.  
 
-While the construction of a predictive model in the context of our data proved to be less than ideal, the t-testing does clearly show significant temperature differences under various weather conditions.
+While the construction of a predictive model in the context of our data proved to be less than ideal, t-testing does clearly show significant temperature differences under various weather conditions.
 
 **Sources:** 
  - Primary
