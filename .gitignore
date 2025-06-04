@@ -1,0 +1,8 @@
+**/.DS_Store
+**/.ipynb_checkpoints
+
+# ignore the following files 
+**/creds.py
+**/keys.pem
+**/__pycache__
+
